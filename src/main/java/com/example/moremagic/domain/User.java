@@ -1,11 +1,10 @@
-package com.mmg.moremagic.domain;
+package com.example.moremagic.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
-    //TODO How to let the DB decide on Id?
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
@@ -48,3 +47,5 @@ public class User {
         this.address = address;
     }
 }
+
+

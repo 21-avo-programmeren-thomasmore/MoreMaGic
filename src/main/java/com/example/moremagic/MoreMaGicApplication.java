@@ -1,4 +1,4 @@
-package com.mmg.moremagic;
+package com.example.moremagic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
