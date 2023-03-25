@@ -5,7 +5,9 @@ import an.awesome.pipelinr.Voidy;
 import be.thomasmore.moremagic.application.commands.createUser.CreateUserCommand;
 import be.thomasmore.moremagic.domain.User;
 import be.thomasmore.moremagic.persistence.UserRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EditUserCommandHandler implements Command.Handler<EditUserCommand, Voidy> {
     private final UserRepository _userRepository;
 
