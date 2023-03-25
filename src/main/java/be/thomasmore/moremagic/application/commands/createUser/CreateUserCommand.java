@@ -1,4 +1,4 @@
-package com.example.moremagic.application.commands.createUser;
+package be.thomasmore.moremagic.application.commands.createUser;
 
 import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;

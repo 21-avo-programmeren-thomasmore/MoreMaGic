@@ -1,4 +1,4 @@
-package com.example.moremagic.configuration;
+package be.thomasmore.moremagic.configuration;
 
 import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Pipeline;

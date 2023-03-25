@@ -1,11 +1,10 @@
-package com.example.moremagic.persistence;
+package be.thomasmore.moremagic.persistence;
 
-import com.example.moremagic.domain.User;
+import be.thomasmore.moremagic.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
 import java.util.List;
 
 @Repository

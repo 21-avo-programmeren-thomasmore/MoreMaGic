@@ -1,9 +1,9 @@
-package com.example.moremagic.application.commands.createUser;
+package be.thomasmore.moremagic.application.commands.createUser;
 
 import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;
-import com.example.moremagic.domain.User;
-import com.example.moremagic.persistence.UserRepository;
+import be.thomasmore.moremagic.domain.User;
+import be.thomasmore.moremagic.persistence.UserRepository;
 import org.springframework.stereotype.Component;
 
 @Component

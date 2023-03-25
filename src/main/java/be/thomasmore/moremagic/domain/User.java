@@ -1,4 +1,4 @@
-package com.example.moremagic.domain;
+package be.thomasmore.moremagic.domain;
 
 import javax.persistence.*;
 
@@ -45,6 +45,11 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void editUser(String name, String address){
+        setName(name);
+        setAddress(address);
     }
 }
 

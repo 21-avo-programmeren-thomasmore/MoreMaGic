@@ -1,8 +1,8 @@
-package com.example.moremagic.application.queries.getUsers;
+package be.thomasmore.moremagic.application.queries.getUsers;
 
 import an.awesome.pipelinr.Command;
-import com.example.moremagic.domain.User;
-import com.example.moremagic.persistence.UserRepository;
+import be.thomasmore.moremagic.domain.User;
+import be.thomasmore.moremagic.persistence.UserRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

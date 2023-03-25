@@ -1,7 +1,7 @@
-package com.example.moremagic.application.queries.getUsers;
+package be.thomasmore.moremagic.application.queries.getUsers;
 
 import an.awesome.pipelinr.Command;
-import com.example.moremagic.domain.User;
+import be.thomasmore.moremagic.domain.User;
 
 import java.util.List;
 

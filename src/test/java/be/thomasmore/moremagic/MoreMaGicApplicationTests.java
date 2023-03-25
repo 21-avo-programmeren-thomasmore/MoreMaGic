@@ -1,4 +1,4 @@
-package com.example.moremagic;
+package be.thomasmore.moremagic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
