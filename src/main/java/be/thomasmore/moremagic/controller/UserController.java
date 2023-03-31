@@ -4,7 +4,7 @@ import an.awesome.pipelinr.Pipeline;
 import an.awesome.pipelinr.Voidy;
 import be.thomasmore.moremagic.application.commands.createUser.CreateUserCommand;
 import be.thomasmore.moremagic.application.commands.editUser.EditUserCommand;
-import be.thomasmore.moremagic.application.commands.triggerJsonMap.triggerJsonMapCommand;
+import be.thomasmore.moremagic.application.commands.testTriggerJsonMap.triggerJsonMapCommand;
 import be.thomasmore.moremagic.application.queries.ScryfallTest.ScryfallTestQuery;
 import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
 import be.thomasmore.moremagic.application.queries.getUsers.GetUsersQuery;

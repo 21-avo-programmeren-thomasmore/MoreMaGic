@@ -1,4 +1,4 @@
-package be.thomasmore.moremagic.application.commands.triggerJsonMap;
+package be.thomasmore.moremagic.application.commands.testTriggerJsonMap;
 
 import an.awesome.pipelinr.Command;
 import be.thomasmore.moremagic.domain.ScryfallCard;
