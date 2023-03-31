@@ -1,11 +1,5 @@
 package be.thomasmore.moremagic.services;
 
-import be.thomasmore.moremagic.domain.Card;
-import org.aspectj.weaver.ast.Call;
-
-import java.io.IOException;
-import java.util.List;
-
 public class ScryfallService {
     /*private ScryfallInterface scryfallApi;
 

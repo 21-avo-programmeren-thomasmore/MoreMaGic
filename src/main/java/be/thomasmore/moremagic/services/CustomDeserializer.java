@@ -1,6 +1,6 @@
 package be.thomasmore.moremagic.services;
 
-import be.thomasmore.moremagic.domain.Card;
+import be.thomasmore.moremagic.domain.ScryfallCard;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import java.io.IOException;
 
-public class CustomDeserializer extends StdDeserializer<Card> {
+public class CustomDeserializer extends StdDeserializer<ScryfallCard> {
     public CustomDeserializer() {
         this(null);
     }
@@ -19,12 +19,12 @@ public class CustomDeserializer extends StdDeserializer<Card> {
         super(vc);
     }
     @Override
-    public Card deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        Card card = new Card();
+    public ScryfallCard deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+        ScryfallCard scryfallCard = new ScryfallCard();
         ObjectCodec codec = parser.getCodec();
         JsonNode node = codec.readTree(parser);
 
 
-        return card;
+        return scryfallCard;
     }
 }

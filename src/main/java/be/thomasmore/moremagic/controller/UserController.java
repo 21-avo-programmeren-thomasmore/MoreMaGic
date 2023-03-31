@@ -8,15 +8,11 @@ import be.thomasmore.moremagic.application.commands.triggerJsonMap.triggerJsonMa
 import be.thomasmore.moremagic.application.queries.ScryfallTest.ScryfallTestQuery;
 import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
 import be.thomasmore.moremagic.application.queries.getUsers.GetUsersQuery;
-import be.thomasmore.moremagic.domain.Card;
+import be.thomasmore.moremagic.domain.ScryfallCard;
 import be.thomasmore.moremagic.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -30,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/transformJson")
-    public List<Card> transformJson(){
+    public List<ScryfallCard> transformJson(){
         return pipeline.send(new triggerJsonMapCommand());
     }
     @GetMapping("/userByName")

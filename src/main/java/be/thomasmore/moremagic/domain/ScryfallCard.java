@@ -2,11 +2,22 @@ package be.thomasmore.moremagic.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.IOException;
 import java.util.ArrayList;
-
-public class Card{
+import java.util.Date;
+import java.util.Map;
+@Entity
+@Table(name = "scryfallcards")
+public class ScryfallCard {
+    @Id
+    @SequenceGenerator(name = "pet_seq",
+            sequenceName = "pet_sequence",
+            initialValue = 1, allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pet_seq")
+    private Integer own_id;
     @JsonProperty("object")
     public String object;
     @JsonProperty("id")
@@ -14,7 +25,9 @@ public class Card{
     @JsonProperty("oracle_id")
     public String oracle_id;
     @JsonProperty("multiverse_ids")
-    public ArrayList<Integer> multiverse_ids;
+    @Column(columnDefinition = "int[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomIntegerArrayType")
+    public Integer[] multiverse_ids;
     @JsonProperty("mtgo_id")
     public int mtgo_id;
     @JsonProperty("mtgo_foil_id")
@@ -28,7 +41,7 @@ public class Card{
     @JsonProperty("lang")
     public String lang;
     @JsonProperty("released_at")
-    public String released_at;
+    public Date released_at;
     @JsonProperty("uri")
     public String uri;
     @JsonProperty("scryfall_uri")
@@ -63,12 +76,18 @@ public class Card{
     public String power;
     @JsonProperty("toughness")
     public String toughness;
+    @Column(columnDefinition = "text[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomStringArrayType")
     @JsonProperty("colors")
-    public ArrayList<String> colors;
+    public String[] colors;
     @JsonProperty("color_identity")
-    public ArrayList<String> color_identity;
+    @Column(columnDefinition = "text[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomStringArrayType")
+    public String[] color_identity;
     @JsonProperty("keywords")
-    public ArrayList<Object> keywords;
+    @Column(columnDefinition = "text[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomStringArrayType")
+    public String[] keywords;
     @JsonProperty("legalities.standard")
     public String legalities_standard;
     @JsonProperty("legalities.future")
@@ -112,7 +131,9 @@ public class Card{
     @JsonProperty("legalities.predh")
     public String legalities_predh;
     @JsonProperty("games")
-    public ArrayList<String> games;
+    @Column(columnDefinition = "text[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomStringArrayType")
+    public String[] games;
     @JsonProperty("reserved")
     public boolean reserved;
     @JsonProperty("foil")
@@ -120,7 +141,9 @@ public class Card{
     @JsonProperty("nonfoil")
     public boolean nonfoil;
     @JsonProperty("finishes")
-    public ArrayList<String> finishes;
+    @Column(columnDefinition = "text[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomStringArrayType")
+    public String[] finishes;
     @JsonProperty("oversized")
     public boolean oversized;
     @JsonProperty("promo")
@@ -158,7 +181,9 @@ public class Card{
 
     public String artist;
     @JsonProperty("artist_ids")
-    public ArrayList<String> artist_ids;
+    @Column(columnDefinition = "text[]")
+    @Type(type = "be.thomasmore.moremagic.domain.mapping.CustomStringArrayType")
+    public String[] artist_ids;
     @JsonProperty("illustration_id")
     public String illustration_id;
     @JsonProperty("border_color")
@@ -171,39 +196,101 @@ public class Card{
     public boolean booster;
     @JsonProperty("story_spotlight")
     public boolean story_spotlight;
-    @JsonProperty("edhrec_rank")
     public int edhrec_rank;
-    @JsonProperty("penny_rank")
     public int penny_rank;
-    @JsonProperty("prices.usd")
-
     public String prices_usd;
-    @JsonProperty("prices.usd_foil")
-
     public String prices_usd_foil;
-    @JsonProperty("prices.usd_etched")
-    public Object prices_usd_etched;
-    @JsonProperty("prices.eur")
+    public String prices_usd_etched;
     public String prices_eur;
-    @JsonProperty("prices.eur_foil")
     public String prices_eur_foil;
-    @JsonProperty("prices.tix")
     public String prices_tix;
-    @JsonProperty("related_uris.gatherer")
-
     public String related_uris_gatherer;
-    @JsonProperty("related_uris.tcgplayer_infinite_articles")
     public String related_uris_tcgplayer_infinite_articles;
-    @JsonProperty("related_uris.tcgplayer_infinite_decks")
     public String related_uris_tcgplayer_infinite_decks;
-    @JsonProperty("related_uris.edhrec")
     public String related_uris_edhrec;
+    public String purchase_uris_tcgplayer;
+    public String purchase_uris_cardmarket;
+    public String purchase_uris_cardhoarder;
 
-    public Card() {
+    @SuppressWarnings("unchecked")
+    @JsonProperty("image_uris")
+    private void unpackNestedImageUris(Map<String, Object> imageUris){
+        this.setImage_uris_small((String)imageUris.get("small"));
+        this.setImage_uris_large((String)imageUris.get("large"));
+        this.setImage_uris_normal((String)imageUris.get("normal"));
+        this.setImage_uris_png((String)imageUris.get("png"));
+        this.setImage_uris_art_crop((String)imageUris.get("art_crop"));
+        this.setImage_uris_border_crop((String)imageUris.get("border_crop"));
     }
-    public static Card fromJson(String json) throws IOException {
+
+    @SuppressWarnings("unchecked")
+    @JsonProperty("legalities")
+    private void unpackNestedLegalities(Map<String, Object> legalities){
+        this.setLegalities_alchemy((String)legalities.get("alchemy"));
+        this.setLegalities_brawl((String)legalities.get("brawl"));
+        this.setLegalities_commander((String)legalities.get("commander"));
+        this.setLegalities_duel((String)legalities.get("duel"));
+        this.setLegalities_explorer((String)legalities.get("explorer"));
+        this.setLegalities_future((String)legalities.get("future"));
+        this.setLegalities_gladiator((String)legalities.get("gladiator"));
+        this.setLegalities_historic((String)legalities.get("historic"));
+        this.setLegalities_historicbrawl((String)legalities.get("historicbrawl"));
+        this.setLegalities_legacy((String)legalities.get("legacy"));
+        this.setLegalities_modern((String)legalities.get("modern"));
+        this.setLegalities_oathbreaker((String)legalities.get("oathbreaker"));
+        this.setLegalities_oldschool((String)legalities.get("oldschool"));
+        this.setLegalities_pauper((String)legalities.get("pauper"));
+        this.setLegalities_paupercommander((String)legalities.get("paupercommander"));
+        this.setLegalities_penny((String)legalities.get("penny"));
+        this.setLegalities_pioneer((String)legalities.get("pioneer"));
+        this.setLegalities_predh((String)legalities.get("predh"));
+        this.setLegalities_premodern((String)legalities.get("premodern"));
+        this.setLegalities_standard((String)legalities.get("standard"));
+        this.setLegalities_vintage((String)legalities.get("vintage"));
+    }
+
+    @SuppressWarnings("unchecked")
+    @JsonProperty("prices")
+    private void unpackNestedPrices(Map<String, Object> prices){
+        this.setPrices_usd((String)prices.get("usd"));
+        this.setPrices_usd_foil((String)prices.get("usd_foil"));
+        this.setPrices_usd_etched((String)prices.get("usd_etched"));
+        this.setPrices_eur((String)prices.get("eur"));
+        this.setPrices_eur_foil((String)prices.get("eur_foil"));
+        this.setPrices_tix((String)prices.get("tix"));
+    }
+
+    @SuppressWarnings("unchecked")
+    @JsonProperty("related_uris")
+    private void unpackNestedRelatedUris(Map<String, Object> relatedUris){
+        this.setRelated_uris_gatherer((String)relatedUris.get("gatherer"));
+        this.setRelated_uris_edhrec((String)relatedUris.get("edhrec"));
+        this.setRelated_uris_tcgplayer_infinite_decks((String)relatedUris.get("tcgplayer_infinite_decks"));
+        this.setRelated_uris_tcgplayer_infinite_articles((String)relatedUris.get("tcgplayer_infinite_articles"));
+    }
+
+    @SuppressWarnings("unchecked")
+    @JsonProperty("purchase_uris")
+    private void unpackNestedPurchaseUris(Map<String, Object> purchaseUris){
+        this.setPurchase_uris_tcgplayer((String)purchaseUris.get("tcgplayer"));
+        this.setPurchase_uris_cardhoarder((String)purchaseUris.get("cardhoarder"));
+        this.setPurchase_uris_cardmarket((String)purchaseUris.get("cardmarket"));
+    }
+
+
+    public ScryfallCard() {
+    }
+    public static ScryfallCard fromJson(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(json, Card.class);
+        return mapper.readValue(json, ScryfallCard.class);
+    }
+
+    public Integer getOwn_id() {
+        return own_id;
+    }
+
+    public void setOwn_id(Integer own_id) {
+        this.own_id = own_id;
     }
 
     public String getObject() {
@@ -230,11 +317,11 @@ public class Card{
         this.oracle_id = oracle_id;
     }
 
-    public ArrayList<Integer> getMultiverse_ids() {
+    public Integer[] getMultiverse_ids() {
         return multiverse_ids;
     }
 
-    public void setMultiverse_ids(ArrayList<Integer> multiverse_ids) {
+    public void setMultiverse_ids(Integer[] multiverse_ids) {
         this.multiverse_ids = multiverse_ids;
     }
 
@@ -286,11 +373,11 @@ public class Card{
         this.lang = lang;
     }
 
-    public String getReleased_at() {
+    public Date getReleased_at() {
         return released_at;
     }
 
-    public void setReleased_at(String released_at) {
+    public void setReleased_at(Date released_at) {
         this.released_at = released_at;
     }
 
@@ -430,27 +517,27 @@ public class Card{
         this.toughness = toughness;
     }
 
-    public ArrayList<String> getColors() {
+    public String[] getColors() {
         return colors;
     }
 
-    public void setColors(ArrayList<String> colors) {
+    public void setColors(String[] colors) {
         this.colors = colors;
     }
 
-    public ArrayList<String> getColor_identity() {
+    public String[] getColor_identity() {
         return color_identity;
     }
 
-    public void setColor_identity(ArrayList<String> color_identity) {
+    public void setColor_identity(String[] color_identity) {
         this.color_identity = color_identity;
     }
 
-    public ArrayList<Object> getKeywords() {
+    public String[] getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(ArrayList<Object> keywords) {
+    public void setKeywords(String[] keywords) {
         this.keywords = keywords;
     }
 
@@ -622,11 +709,11 @@ public class Card{
         this.legalities_predh = legalities_predh;
     }
 
-    public ArrayList<String> getGames() {
+    public String[] getGames() {
         return games;
     }
 
-    public void setGames(ArrayList<String> games) {
+    public void setGames(String[] games) {
         this.games = games;
     }
 
@@ -654,11 +741,11 @@ public class Card{
         this.nonfoil = nonfoil;
     }
 
-    public ArrayList<String> getFinishes() {
+    public String[] getFinishes() {
         return finishes;
     }
 
-    public void setFinishes(ArrayList<String> finishes) {
+    public void setFinishes(String[] finishes) {
         this.finishes = finishes;
     }
 
@@ -814,11 +901,11 @@ public class Card{
         this.artist = artist;
     }
 
-    public ArrayList<String> getArtist_ids() {
+    public String[] getArtist_ids() {
         return artist_ids;
     }
 
-    public void setArtist_ids(ArrayList<String> artist_ids) {
+    public void setArtist_ids(String[] artist_ids) {
         this.artist_ids = artist_ids;
     }
 
@@ -910,11 +997,11 @@ public class Card{
         this.prices_usd_foil = prices_usd_foil;
     }
 
-    public Object getPrices_usd_etched() {
+    public String getPrices_usd_etched() {
         return prices_usd_etched;
     }
 
-    public void setPrices_usd_etched(Object prices_usd_etched) {
+    public void setPrices_usd_etched(String prices_usd_etched) {
         this.prices_usd_etched = prices_usd_etched;
     }
 
@@ -972,5 +1059,29 @@ public class Card{
 
     public void setRelated_uris_edhrec(String related_uris_edhrec) {
         this.related_uris_edhrec = related_uris_edhrec;
+    }
+
+    public String getPurchase_uris_tcgplayer() {
+        return purchase_uris_tcgplayer;
+    }
+
+    public void setPurchase_uris_tcgplayer(String purchase_uris_tcgplayer) {
+        this.purchase_uris_tcgplayer = purchase_uris_tcgplayer;
+    }
+
+    public String getPurchase_uris_cardmarket() {
+        return purchase_uris_cardmarket;
+    }
+
+    public void setPurchase_uris_cardmarket(String purchase_uris_cardmarket) {
+        this.purchase_uris_cardmarket = purchase_uris_cardmarket;
+    }
+
+    public String getPurchase_uris_cardhoarder() {
+        return purchase_uris_cardhoarder;
+    }
+
+    public void setPurchase_uris_cardhoarder(String purchase_uris_cardhoarder) {
+        this.purchase_uris_cardhoarder = purchase_uris_cardhoarder;
     }
 }
