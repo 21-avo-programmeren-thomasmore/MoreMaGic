@@ -4,7 +4,7 @@ import an.awesome.pipelinr.Pipeline;
 import an.awesome.pipelinr.Voidy;
 import be.thomasmore.moremagic.application.commands.createUser.CreateUserCommand;
 import be.thomasmore.moremagic.application.commands.editUser.EditUserCommand;
-import be.thomasmore.moremagic.application.commands.testTriggerJsonMap.triggerJsonMapCommand;
+import be.thomasmore.moremagic.application.queries.testTriggerJsonMap.triggerJsonMapQuery;
 import be.thomasmore.moremagic.application.queries.ScryfallTest.ScryfallTestQuery;
 import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
 import be.thomasmore.moremagic.application.queries.getUsers.GetUsersQuery;
@@ -19,15 +19,16 @@ import java.util.List;
 public class UserController {
     @Autowired
     Pipeline pipeline;
-    @GetMapping("/say-hello")
+    @GetMapping("/users")
     public List<User> SayHello(){
 
         return pipeline.send(new GetUsersQuery());
     }
 
+    // test for translation from json to domain model
     @GetMapping("/transformJson")
-    public List<ScryfallCard> transformJson(){
-        return pipeline.send(new triggerJsonMapCommand());
+    public ScryfallCard transformJson(){
+        return pipeline.send(new triggerJsonMapQuery());
     }
     @GetMapping("/userByName")
     public User GetUserByName(@RequestParam String name){
