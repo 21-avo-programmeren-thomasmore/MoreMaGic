@@ -44,7 +44,7 @@ public class addCardCommandHandler implements Command.Handler<addCardCommand, Vo
         card.setScryfallId(scryfallCard.getId());
         card.setOracleId(scryfallCard.getOracle_id());
         card.setReserved(scryfallCard.isReserved());
-        card.setArist(scryfallCard.getArtist());
+        card.setArtist(scryfallCard.getArtist());
         card.setBorderColor(scryfallCard.getBorder_color());
         card.setFlavorText(scryfallCard.getFlavor_text());
         card.setCollecterNumber(scryfallCard.getCollector_number());

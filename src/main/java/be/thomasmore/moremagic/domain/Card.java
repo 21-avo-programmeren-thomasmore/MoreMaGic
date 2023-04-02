@@ -1,6 +1,5 @@
 package be.thomasmore.moremagic.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
@@ -77,7 +76,7 @@ public class Card {
     @Column(name = "flavor_text")
 
     private String flavorText;
-    private String arist;
+    private String artist;
     @Column(name = "border_color")
 
     private String borderColor;
@@ -437,12 +436,12 @@ public class Card {
         this.flavorText = flavorText;
     }
 
-    public String getArist() {
-        return arist;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setArist(String arist) {
-        this.arist = arist;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
     public String getBorderColor() {
