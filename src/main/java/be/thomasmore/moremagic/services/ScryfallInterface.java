@@ -5,26 +5,34 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer;
-import io.swagger.v3.core.util.Json;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.net.URI;
+import java.util.ArrayList;
 
 @RestController
 public interface ScryfallInterface {
     String baseUrl="https://api.scryfall.com/";
-    static List<ScryfallCard> searchCards(String search){
-        String url=baseUrl+"cards/search?q="+search+"&include_extras=true&order=name";
+    static ArrayList<ScryfallCard> searchCards(String search, String orderBy){
+        String url=baseUrl+"cards/search";
+        URI uri = UriComponentsBuilder.fromUriString(url)
+                .queryParam("q", search)
+                .queryParam("include_extras", true)
+                .queryParam("order", orderBy)
+                .build()
+                .toUri();
         RestTemplate restTemplate = new RestTemplate();
-        JsonNode json = restTemplate.getForObject(url, JsonNode.class);
+        JsonNode json = restTemplate.getForObject(uri, JsonNode.class);
+        ArrayList<ScryfallCard> scryfallCards = new ArrayList<>();
+        if (json == null)
+            return scryfallCards;
         var jsonArray = json.get("data");
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        List<ScryfallCard> scryfallCards;
 
         try {
             scryfallCards = mapper.readValue(jsonArray.toString(), new TypeReference<>() {});
