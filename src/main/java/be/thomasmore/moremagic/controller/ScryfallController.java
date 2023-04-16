@@ -12,7 +12,7 @@ import java.util.Optional;
 @RestController
 public class ScryfallController {
 
-    @GetMapping("search")
+    @GetMapping("scryfall/search")
     public ArrayList<ScryfallCard> searchCards(@RequestParam String search,
                                                @RequestParam Optional<String> orderBy ){
         return ScryfallInterface.searchCards(search, orderBy.orElse("name"));
