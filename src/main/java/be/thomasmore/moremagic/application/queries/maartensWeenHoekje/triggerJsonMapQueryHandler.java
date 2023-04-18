@@ -1,9 +1,9 @@
-package be.thomasmore.moremagic.application.queries.testTriggerJsonMap;
+package be.thomasmore.moremagic.application.queries.maartensWeenHoekje;
 
 import an.awesome.pipelinr.Command;
-import be.thomasmore.moremagic.domain.Card;
+//import be.thomasmore.moremagic.domain.Card;
 import be.thomasmore.moremagic.domain.ScryfallCard;
-import be.thomasmore.moremagic.persistence.CardRepository;
+//import be.thomasmore.moremagic.persistence.CardRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,12 +15,12 @@ import java.util.List;
 
 @Component
 public class triggerJsonMapQueryHandler implements Command.Handler<triggerJsonMapQuery, ScryfallCard> {
-    private CardRepository _repository;
-    Card card = new Card();
-
-    public triggerJsonMapQueryHandler(CardRepository _repository) {
-        this._repository = _repository;
-    }
+//    private CardRepository _repository;
+//    Card card = new Card();
+//
+//    public triggerJsonMapQueryHandler(CardRepository _repository) {
+//        this._repository = _repository;
+//    }
 
     // save a srcyfall json file on your local machine and adjust the path
     // in the below code, it will return record 666 from the json file

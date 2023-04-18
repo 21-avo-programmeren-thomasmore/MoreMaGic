@@ -1,4 +1,4 @@
-package be.thomasmore.moremagic.application.queries.testTriggerJsonMap;
+package be.thomasmore.moremagic.application.queries.maartensWeenHoekje;
 
 import an.awesome.pipelinr.Command;
 import be.thomasmore.moremagic.domain.ScryfallCard;

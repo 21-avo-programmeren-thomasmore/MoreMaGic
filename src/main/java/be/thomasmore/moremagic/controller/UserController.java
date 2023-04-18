@@ -5,8 +5,7 @@ import an.awesome.pipelinr.Voidy;
 import be.thomasmore.moremagic.application.commands.createUser.CreateUserCommand;
 import be.thomasmore.moremagic.application.commands.editUser.EditUserCommand;
 import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
-import be.thomasmore.moremagic.application.queries.testTriggerJsonMap.triggerJsonMapQuery;
-import be.thomasmore.moremagic.application.queries.ScryfallTest.ScryfallTestQuery;
+import be.thomasmore.moremagic.application.queries.maartensWeenHoekje.triggerJsonMapQuery;
 import be.thomasmore.moremagic.application.queries.getUsers.GetUsersQuery;
 import be.thomasmore.moremagic.domain.ScryfallCard;
 import be.thomasmore.moremagic.domain.User;
@@ -19,36 +18,26 @@ import java.util.List;
 public class UserController {
     @Autowired
     Pipeline pipeline;
-    @GetMapping("/users")
+    @GetMapping("/users/allUsers")
     public List<User> SayHello(){
 
         return pipeline.send(new GetUsersQuery());
     }
 
-    // test for translation from json to domain model
-    @GetMapping("/transformJson")
-    public ScryfallCard transformJson(){
-        return pipeline.send(new triggerJsonMapQuery());
-    }
-    @GetMapping("/userByName")
+    @GetMapping("/users/userByName")
     public User GetUserByName(@RequestParam String name){
         return pipeline.send(new GetUserQuery(name));
     }
 
-    @PostMapping("/user")
+    @PostMapping("/users/user")
     public Voidy CreateUser(@RequestBody CreateUserCommand cmd)
     {
         return pipeline.send(cmd);
     }
 
-    @PutMapping("/user")
+    @PutMapping("/users/user")
     public Voidy EditUser(@RequestBody EditUserCommand cmd) {
         return pipeline.send(cmd);
     }
 
-    @GetMapping("/scryfall")
-    public Voidy GetSomething(){
-
-        return pipeline.send(new ScryfallTestQuery());
-    }
 }
