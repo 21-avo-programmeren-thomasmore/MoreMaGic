@@ -5,8 +5,13 @@ import be.thomasmore.moremagic.domain.UserCard;
 
 import java.util.ArrayList;
 
-public class GetUserCardQuery implements Command<ArrayList<UserCard>>{
-    public GetUserCardQuery(){
+public class GetUserCardQuery implements Command<UserCard>{
+    public String oracleID;
+    public int collectionID;
 
+
+    public GetUserCardQuery(String oracleID,int collectionID) {
+        this.oracleID = oracleID;
+        this.collectionID = collectionID;
     }
 }
