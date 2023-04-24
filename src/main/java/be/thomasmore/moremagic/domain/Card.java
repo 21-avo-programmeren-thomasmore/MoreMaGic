@@ -6,6 +6,27 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+@Entity
+public class Card {
+    @Id
+    @GeneratedValue
+    @Column(name = "Id", nullable = false)
+    private Integer cardId;
+    @Column(name = "CollectionId", nullable = false)
+    private Integer collectionId;
+    @Column(name = "ScryfallId", nullable = false)
+    private Integer skryfallId;
+
+    public Card (Integer collectionId, Integer SkryfallId) {
+
+        this.collectionId = collectionId;
+        skryfallId = SkryfallId;
+    }
+
+    public Card () {}
+}
+
 /*
 @Entity
 public class Card {
