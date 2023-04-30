@@ -12,4 +12,7 @@ public interface CardRepository extends JpaRepository<Card, Integer> {
 
     @Query(value="SELECT * FROM card c WHERE c.oracle_id = ?1", nativeQuery = true)
     List<Card> FindByCardId(Integer cardId);
+
+    @Query(value="SELECT * FROM card c WHERE c.collection_id = ?1", nativeQuery = true)
+    List<Card> FindByCollectionId(Integer collectionId);
 }

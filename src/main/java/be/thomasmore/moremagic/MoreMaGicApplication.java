@@ -20,6 +20,7 @@ public class MoreMaGicApplication {
                 registry.addMapping("/users/*").allowedOrigins("http://localhost:3000");
                 registry.addMapping("/scryfall/*").allowedOrigins("http://localhost:3000");
                 registry.addMapping("/cardlist/*").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/cardlist/getCardsFromCollection").allowedOrigins("http://localhost:3000");
 
             }
         };

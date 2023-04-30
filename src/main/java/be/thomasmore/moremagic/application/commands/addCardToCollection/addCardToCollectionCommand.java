@@ -5,9 +5,9 @@ import an.awesome.pipelinr.Voidy;
 
 public class addCardToCollectionCommand implements Command<Voidy> {
     public Integer collectionId;
-    public Integer skryfallId;
+    public String skryfallId;
 
-    public addCardToCollectionCommand (Integer collectionId, Integer skryfallId) {
+    public addCardToCollectionCommand (Integer collectionId, String skryfallId) {
         this.collectionId = collectionId;
         this.skryfallId = skryfallId;
     }
