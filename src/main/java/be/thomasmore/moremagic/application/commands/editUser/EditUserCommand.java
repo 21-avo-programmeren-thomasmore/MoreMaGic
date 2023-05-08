@@ -5,6 +5,6 @@ import an.awesome.pipelinr.Voidy;
 
 public class EditUserCommand implements Command<Voidy> {
     public Integer id;
-    public String name;
-    public String address;
+    public String firstName;
+    public String lastName;
 }

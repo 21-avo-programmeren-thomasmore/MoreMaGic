@@ -4,7 +4,9 @@ import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;
 
 public class CreateUserCommand implements Command<Voidy> {
-    public String Name;
-    public String Address;
+    public String FirstName;
+    public String LastName;
+    public String Email;
+    public String Password;
 
 }
