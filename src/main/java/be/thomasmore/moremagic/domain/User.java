@@ -1,10 +1,10 @@
 package be.thomasmore.moremagic.domain;
 
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,10 +15,10 @@ public class User implements UserDetails {
     @GeneratedValue
     @Column(name = "id", nullable = false)
     private Integer id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "address")
-    private String address;
+    @Column(name = "firstName")
+    private String firstName;
+    @Column(name = "lastName")
+    private String lastName;
 
     private String email;
 
@@ -26,20 +26,46 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User(String name, String address, String email, String password) {
-        this.name = name;
-        this.address = address;
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = Role.USER;
     }
 
-    public User(String name, String address) {
-        this.name = name;
-        this.address = address;
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     public User() {
 
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Integer getId() {
@@ -50,21 +76,6 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getEmail() {
         return email;
@@ -113,9 +124,9 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public void editUser(String name, String address){
-        setName(name);
-        setAddress(address);
+    public void editUser(String firstName, String lastName){
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 }
 

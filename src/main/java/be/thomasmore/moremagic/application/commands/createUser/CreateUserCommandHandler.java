@@ -17,7 +17,7 @@ public class CreateUserCommandHandler implements Command.Handler<CreateUserComma
 
     @Override
     public Voidy handle(CreateUserCommand createUserCommand) {
-        User user = new User(createUserCommand.Name, createUserCommand.Address);
+        User user = new User(createUserCommand.FirstName, createUserCommand.LastName, createUserCommand.Email);
         _userRepository.save(user);
         return null;
     }

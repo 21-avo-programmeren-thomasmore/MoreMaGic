@@ -7,7 +7,7 @@ import be.thomasmore.moremagic.application.commands.editUser.EditUserCommand;
 import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
 import be.thomasmore.moremagic.application.queries.maartensWeenHoekje.triggerJsonMapQuery;
 import be.thomasmore.moremagic.application.queries.getUsers.GetUsersQuery;
-import be.thomasmore.moremagic.domain.ScryfallCard;
+//import be.thomasmore.moremagic.domain.ScryfallCard;
 import be.thomasmore.moremagic.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
