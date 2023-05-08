@@ -12,9 +12,9 @@ public class User {
     @GeneratedValue
     @Column(name = "id", nullable = false)
     private Integer id;
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "email")

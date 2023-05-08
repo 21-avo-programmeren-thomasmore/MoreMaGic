@@ -7,4 +7,9 @@ public class AuthorizeUserCommand implements Command<User> {
 
     public String email;
     public String password;
+
+    public AuthorizeUserCommand(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }

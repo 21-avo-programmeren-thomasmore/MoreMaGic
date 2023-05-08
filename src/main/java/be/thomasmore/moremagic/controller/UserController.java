@@ -42,6 +42,7 @@ public class UserController {
     }
 
     @GetMapping("users/has-account")
-    public User authorizeUser(@RequestBody AuthorizeUserCommand cmd) {return pipeline.send(cmd);}
+    public User authorizeUser(@RequestParam String email, @RequestParam String password) {
+        return pipeline.send(new AuthorizeUserCommand(email, password));}
 
 }
