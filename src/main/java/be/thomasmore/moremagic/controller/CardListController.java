@@ -29,9 +29,11 @@ public class CardListController {
     @PostMapping ("cardlist/addCardToCollection")
     public Voidy addCardToCollection(
                                      @RequestParam Integer collectionId,
-                                     @RequestParam String skryfallId
+                                     @RequestParam String skryfallId,
+                                     @RequestParam String name,
+                                     @RequestParam String photo
                                      ) {
-        return pipeline.send(new addCardToCollectionCommand(collectionId, skryfallId));
+        return pipeline.send(new addCardToCollectionCommand(collectionId, skryfallId, name, photo));
     }
 
     @GetMapping ("cardlist/getCollections")
