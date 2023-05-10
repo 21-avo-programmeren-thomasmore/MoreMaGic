@@ -16,16 +16,16 @@ public class Card {
     @Column(name = "CollectionId", nullable = false)
     private Integer collectionId;
     @Column(name = "ScryfallId", nullable = false)
-    private String skryfallId;
+    private String scryfallId;
     @Column(name = "Name")
     private String name;
     @Column(name = "Photo")
     private String photo;
 
-    public Card (Integer collectionId, String SkryfallId, String name, String photo) {
+    public Card (Integer collectionId, String scryfallId, String name, String photo) {
 
         this.collectionId = collectionId;
-        skryfallId = SkryfallId;
+        scryfallId = scryfallId;
         this.name = name;
         this.photo = photo;
     }
@@ -48,12 +48,12 @@ public class Card {
         this.collectionId = collectionId;
     }
 
-    public String getSkryfallId() {
-        return skryfallId;
+    public String getscryfallId() {
+        return scryfallId;
     }
 
-    public void setSkryfallId(String skryfallId) {
-        this.skryfallId = skryfallId;
+    public void setscryfallId(String scryfallId) {
+        this.scryfallId = scryfallId;
     }
 
     public String getName() {
