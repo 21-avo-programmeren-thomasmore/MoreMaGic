@@ -17,9 +17,8 @@ public class createCollectionCommandHandler implements Command.Handler<createCol
 
     @Override
     public Voidy handle(createCollectionCommand command) {
-        System.out.println(command.name);
-        Collection collection = new Collection(command.name, command.description);
+        Collection collection = new Collection(command.name, command.description, command.userEmail);
         _collectionRepository.save(collection);
-             return null;
+        return null;
     }
 }

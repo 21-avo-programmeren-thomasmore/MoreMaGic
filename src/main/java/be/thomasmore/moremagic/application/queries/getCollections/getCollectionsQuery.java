@@ -6,7 +6,9 @@ import be.thomasmore.moremagic.domain.Collection;
 import java.util.List;
 
 public class getCollectionsQuery implements Command<List<Collection>> {
+    public String UserEmail;
 
-    public getCollectionsQuery() {
+    public getCollectionsQuery(String userEmail) {
+        UserEmail = userEmail;
     }
 }

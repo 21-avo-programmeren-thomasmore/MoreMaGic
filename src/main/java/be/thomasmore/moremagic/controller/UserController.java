@@ -25,9 +25,9 @@ public class UserController {
         return pipeline.send(new GetUsersQuery());
     }
 
-    @GetMapping("/users/userByName")
-    public User GetUserByName(@RequestParam String name){
-        return pipeline.send(new GetUserQuery(name));
+    @GetMapping("/users/userByEmail")
+    public User GetUserByName(@RequestParam String email){
+        return pipeline.send(new GetUserQuery(email));
     }
 
     @PostMapping("/users/create-user")

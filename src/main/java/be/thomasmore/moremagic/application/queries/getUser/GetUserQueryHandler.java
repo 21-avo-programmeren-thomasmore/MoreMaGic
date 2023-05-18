@@ -16,7 +16,7 @@ public class GetUserQueryHandler implements Command.Handler<GetUserQuery, User> 
 
     @Override
     public User handle(GetUserQuery getUserQuery) {
-        List<User> users = _userRepository.FindByName(getUserQuery.Name);
+        List<User> users = _userRepository.FindByEmail(getUserQuery.Email);
         return users.get(0);
     }
 }

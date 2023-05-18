@@ -19,7 +19,7 @@ public class getCollectionsQueryHandler implements Command.Handler<getCollection
 
     @Override
     public List<Collection> handle(getCollectionsQuery command) {
-        List<Collection> collections = _collectionRepository.findAll();
+        List<Collection> collections = _collectionRepository.FindByUserEmail(command.UserEmail);
         return collections;
     }
 }

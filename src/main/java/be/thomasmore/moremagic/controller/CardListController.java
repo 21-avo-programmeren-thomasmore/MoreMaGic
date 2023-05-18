@@ -21,9 +21,8 @@ public class CardListController {
     @Autowired
     Pipeline pipeline;
     @PostMapping ("cardlist/createCollection")
-    public Voidy createCollection(@RequestParam String name,
-                                  @RequestParam String description ){
-        return pipeline.send(new createCollectionCommand(name, description));
+    public Voidy createCollection(@RequestBody createCollectionCommand cmd ){
+        return pipeline.send(cmd);
     }
 
     @PostMapping ("cardlist/addCardToCollection")
@@ -37,8 +36,8 @@ public class CardListController {
     }
 
     @GetMapping ("cardlist/getCollections")
-    public List<Collection> getCollections() {
-        return pipeline.send(new getCollectionsQuery());
+    public List<Collection> getCollections(@RequestParam String userMail) {
+        return pipeline.send(new getCollectionsQuery(userMail));
     }
 
     @GetMapping("cardlist/getCardsFromCollection")
