@@ -6,6 +6,73 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+@Entity
+public class Card {
+    @Id
+    @GeneratedValue
+    @Column(name = "Id", nullable = false)
+    private Integer cardId;
+    @Column(name = "CollectionId", nullable = false)
+    private Integer collectionId;
+    @Column(name = "ScryfallId", nullable = false)
+    private String skryfallId;
+    @Column(name = "Name")
+    private String name;
+    @Column(name = "Photo")
+    private String photo;
+
+    public Card (Integer collectionId, String SkryfallId, String name, String photo) {
+
+        this.collectionId = collectionId;
+        skryfallId = SkryfallId;
+        this.name = name;
+        this.photo = photo;
+    }
+
+    public Card () {}
+
+    public Integer getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
+    }
+
+    public Integer getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(Integer collectionId) {
+        this.collectionId = collectionId;
+    }
+
+    public String getSkryfallId() {
+        return skryfallId;
+    }
+
+    public void setSkryfallId(String skryfallId) {
+        this.skryfallId = skryfallId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+}
+
 /*
 @Entity
 public class Card {

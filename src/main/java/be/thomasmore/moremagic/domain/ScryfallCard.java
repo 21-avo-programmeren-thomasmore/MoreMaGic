@@ -52,9 +52,9 @@ public class ScryfallCard {
     public boolean highres_image;
     @JsonProperty("image_status")
     public String image_status;
-    @JsonProperty("image_uris.small")
+    @JsonProperty("image_uris_small")
     public String image_uris_small;
-    @JsonProperty("image_uris.normal")
+    @JsonProperty("image_uris_normal")
     public String image_uris_normal;
     @JsonProperty("image_uris.large")
     public String image_uris_large;
