@@ -6,10 +6,8 @@ import be.thomasmore.moremagic.application.commands.addCardToCollection.addCardT
 import be.thomasmore.moremagic.application.commands.createCollection.createCollectionCommand;
 import be.thomasmore.moremagic.application.queries.getCardsFromCollection.getCardsFromCollectionQuery;
 import be.thomasmore.moremagic.application.queries.getCollections.getCollectionsQuery;
-import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
 import be.thomasmore.moremagic.domain.Card;
 import be.thomasmore.moremagic.domain.Collection;
-import be.thomasmore.moremagic.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

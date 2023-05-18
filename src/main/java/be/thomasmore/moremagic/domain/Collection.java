@@ -8,21 +8,21 @@ import java.time.LocalDateTime;
 public class Collection {
     @Id
     @GeneratedValue
-    @Column(name = "CollectionId", nullable = false)
+    @Column(name = "collection_id", nullable = false)
     private Integer collectionId;
-    @Column(name = "CollectionName")
+    @Column(name = "collection_name")
     private String collectionName;
-    @Column(name = "CreatedBy")
+    @Column(name = "created_by")
     private String createdBy;
-    @Column(name = "CreatedOn")
+    @Column(name = "created_on")
     private LocalDateTime createdOn;
-    @Column(name = "ModifiedOn")
+    @Column(name = "modified_on")
     private LocalDateTime modifiedOn;
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
-    @Column(name = "CollectionStoragePlace")
+    @Column(name = "collection_storage_place")
     private String collectionStoragePlace;
-    @Column(name = "CollectionDeckId")
+    @Column(name = "collection_deck_id")
     private Integer collectionDeckId;
 
     public Collection (String collectionName, String description, String createdBy) {

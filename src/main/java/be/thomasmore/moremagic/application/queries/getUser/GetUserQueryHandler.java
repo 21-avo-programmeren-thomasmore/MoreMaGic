@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 @Component
 public class GetUserQueryHandler implements Command.Handler<GetUserQuery, User> {
-    private UserRepository _userRepository;
+    private final UserRepository _userRepository;
 
     public GetUserQueryHandler(UserRepository _userRepository) {
         this._userRepository = _userRepository;
