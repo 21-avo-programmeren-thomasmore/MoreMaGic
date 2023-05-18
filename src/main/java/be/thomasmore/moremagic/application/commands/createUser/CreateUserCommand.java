@@ -9,4 +9,10 @@ public class CreateUserCommand implements Command<Voidy> {
     public String Email;
     public String Password;
 
+    public CreateUserCommand(String firstName, String lastName, String email, String password) {
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        Password = password;
+    }
 }

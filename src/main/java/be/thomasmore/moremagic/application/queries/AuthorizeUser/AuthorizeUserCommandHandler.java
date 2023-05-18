@@ -20,10 +20,9 @@ public class AuthorizeUserCommandHandler implements Command.Handler<AuthorizeUse
             List<User> users = _userRepository.FindByEmail(authorizeUserCommand.email);
             if( users.isEmpty()) throw new Exception("No user found");
             if( users.get(0).getPassword().equals(authorizeUserCommand.password)) return users.get(0);
+            return null;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return null;
-
     }
 }
