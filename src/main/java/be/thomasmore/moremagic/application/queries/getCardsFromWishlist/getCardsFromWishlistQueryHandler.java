@@ -18,7 +18,7 @@ public class getCardsFromWishlistQueryHandler implements Command.Handler<getCard
 
     @Override
     public List<Card> handle(getCardsFromWishlistQuery command) {
-        List<Card> cards = _cardRepository.FindByCollectionId(command.wishlistId);
+        List<Card> cards = _cardRepository.FindByWishlistId(command.wishlistId);
         return cards;
     }
 }

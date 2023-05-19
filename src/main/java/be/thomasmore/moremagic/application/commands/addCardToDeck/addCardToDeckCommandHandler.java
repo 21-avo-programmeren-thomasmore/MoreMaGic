@@ -18,7 +18,7 @@ public class addCardToDeckCommandHandler implements Command.Handler<addCardToDec
 
     @Override
     public Voidy handle(addCardToDeckCommand command) {
-        Card card = new Card(command.collectionId, command.skryfallId, command.name, command.photo, command.setName, command.collectorNumber, command.typeLine, command.rarity, command.lang, command.priceEur);
+        Card card = new Card(null, command.skryfallId, command.name, command.photo, command.setName, command.collectorNumber, command.typeLine, command.rarity, command.lang, command.priceEur, null, command.deckId);
         _cardRepository.save(card);
         return null;
     }

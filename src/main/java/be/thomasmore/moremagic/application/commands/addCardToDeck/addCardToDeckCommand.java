@@ -4,7 +4,7 @@ import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;
 
 public class addCardToDeckCommand implements Command<Voidy> {
-    public Integer collectionId;
+    public Integer deckId;
     public String skryfallId;
     public String name;
     public String photo;
@@ -15,8 +15,8 @@ public class addCardToDeckCommand implements Command<Voidy> {
     public String lang;
     public String priceEur;
 
-    public addCardToDeckCommand(Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
-        this.collectionId = collectionId;
+    public addCardToDeckCommand(Integer deckId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
+        this.deckId = deckId;
         this.skryfallId = skryfallId;
         this.name = name;
         this.photo = photo;

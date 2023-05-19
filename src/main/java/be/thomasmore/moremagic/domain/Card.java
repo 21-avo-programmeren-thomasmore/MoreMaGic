@@ -13,8 +13,12 @@ public class Card {
     @GeneratedValue
     @Column(name = "Id", nullable = false)
     private Integer cardId;
-    @Column(name = "CollectionId", nullable = false)
+    @Column(name = "CollectionId", nullable = true)
     private Integer collectionId;
+    @Column(name = "wishlistId", nullable = true)
+    private Integer wishlistId;
+    @Column(name = "deckId", nullable = true)
+    private Integer deckId;
     @Column(name = "ScryfallId", nullable = false)
     private String skryfallId;
     @Column(name = "Name")
@@ -50,7 +54,7 @@ public class Card {
 
     public Card () {}
 
-    public Card(Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
+    public Card(Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur, Integer wishlistId, Integer deckId) {
         this.collectionId = collectionId;
         this.skryfallId = skryfallId;
         this.name = name;
@@ -61,7 +65,9 @@ public class Card {
         this.rarity = rarity;
         this.lang = lang;
         this.priceEur = priceEur;
-            }
+        this.wishlistId = wishlistId;
+        this.deckId = deckId;
+    }
 
     public Integer getCardId() {
         return cardId;
@@ -149,6 +155,22 @@ public class Card {
 
     public void setPriceEur(String priceEur) {
         this.priceEur = priceEur;
+    }
+
+    public Integer getWishlistId() {
+        return wishlistId;
+    }
+
+    public void setWishlistId(Integer wishlistId) {
+        this.wishlistId = wishlistId;
+    }
+
+    public Integer getDeckId() {
+        return deckId;
+    }
+
+    public void setDeckId(Integer deckId) {
+        this.deckId = deckId;
     }
 }
 

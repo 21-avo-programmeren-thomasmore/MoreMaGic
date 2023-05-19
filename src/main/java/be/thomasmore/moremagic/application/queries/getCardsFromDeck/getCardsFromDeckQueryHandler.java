@@ -18,7 +18,7 @@ public class getCardsFromDeckQueryHandler implements Command.Handler<getCardsFro
 
     @Override
     public List<Card> handle(getCardsFromDeckQuery command) {
-        List<Card> cards = _cardRepository.FindByCollectionId(command.deckId);
+        List<Card> cards = _cardRepository.FindByDeckId(command.deckId);
         return cards;
     }
 }

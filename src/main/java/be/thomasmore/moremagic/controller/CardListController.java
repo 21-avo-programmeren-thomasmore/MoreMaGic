@@ -9,6 +9,7 @@ import be.thomasmore.moremagic.application.commands.createCollection.createColle
 import be.thomasmore.moremagic.application.commands.createDeck.createDeckCommand;
 import be.thomasmore.moremagic.application.commands.createWishlist.createWishlistCommand;
 import be.thomasmore.moremagic.application.queries.getCardsFromCollection.getCardsFromCollectionQuery;
+import be.thomasmore.moremagic.application.queries.getCardsFromDeck.getCardsFromDeckQuery;
 import be.thomasmore.moremagic.application.queries.getCardsFromWishlist.getCardsFromWishlistQuery;
 import be.thomasmore.moremagic.application.queries.getCollections.getCollectionsQuery;
 import be.thomasmore.moremagic.application.queries.getDecks.getDecksQuery;
@@ -123,8 +124,7 @@ public class CardListController {
 
     @GetMapping("cardlist/getCardsFromDeck")
     public List<Card> getCardsFromDeck(@RequestParam Integer deckId){
-        return pipeline.send(new getCardsFromWishlistQuery(deckId));
+        return pipeline.send(new getCardsFromDeckQuery(deckId));
     }
-
 }
 

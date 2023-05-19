@@ -17,7 +17,7 @@ public class addCardToWishlistCommandHandler implements Command.Handler<addCardT
 
     @Override
     public Voidy handle(addCardToWishlistCommand command) {
-        Card card = new Card(command.collectionId, command.skryfallId, command.name, command.photo, command.setName, command.collectorNumber, command.typeLine, command.rarity, command.lang, command.priceEur);
+        Card card = new Card(null, command.skryfallId, command.name, command.photo, command.setName, command.collectorNumber, command.typeLine, command.rarity, command.lang, command.priceEur, command.wishlistId, null);
         _cardRepository.save(card);
         return null;
     }
