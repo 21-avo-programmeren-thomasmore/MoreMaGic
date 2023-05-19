@@ -19,18 +19,49 @@ public class Card {
     private String skryfallId;
     @Column(name = "Name")
     private String name;
+    @Column(name = "SetName")
+    private String setName;
+    @Column(name = "CollectorNumber")
+    private String collectorNumber;
+    @Column(name = "TypeLine")
+    private String typeLine;
+    @Column(name = "Rarity")
+    private String rarity;
+    @Column(name = "Lang")
+    private String lang;
+    @Column(name = "PriceEur")
+    private String priceEur;
     @Column(name = "Photo")
     private String photo;
 
-    public Card (Integer collectionId, String SkryfallId, String name, String photo) {
-
+    public Card (Integer cardId, Integer collectionId, String skryfallId, String name, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur, String photo) {
+        this.cardId = cardId;
         this.collectionId = collectionId;
-        skryfallId = SkryfallId;
+        this.skryfallId = skryfallId;
         this.name = name;
+        this.setName = setName;
+        this.collectorNumber = collectorNumber;
+        this.typeLine = typeLine;
+        this.rarity = rarity;
+        this.lang = lang;
+        this.priceEur = priceEur;
         this.photo = photo;
     }
 
     public Card () {}
+
+    public Card(Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
+        this.collectionId = collectionId;
+        this.skryfallId = skryfallId;
+        this.name = name;
+        this.photo = photo;
+        this.setName = setName;
+        this.collectorNumber = collectorNumber;
+        this.typeLine = typeLine;
+        this.rarity = rarity;
+        this.lang = lang;
+        this.priceEur = priceEur;
+            }
 
     public Integer getCardId() {
         return cardId;
@@ -70,6 +101,54 @@ public class Card {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getSetName() {
+        return setName;
+    }
+
+    public void setSetName(String setName) {
+        this.setName = setName;
+    }
+
+    public String getCollectorNumber() {
+        return collectorNumber;
+    }
+
+    public void setCollectorNumber(String collectorNumber) {
+        this.collectorNumber = collectorNumber;
+    }
+
+    public String getTypeLine() {
+        return typeLine;
+    }
+
+    public void setTypeLine(String typeLine) {
+        this.typeLine = typeLine;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
+    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public String getPriceEur() {
+        return priceEur;
+    }
+
+    public void setPriceEur(String priceEur) {
+        this.priceEur = priceEur;
     }
 }
 

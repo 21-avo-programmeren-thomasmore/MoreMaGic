@@ -1,9 +1,9 @@
-package be.thomasmore.moremagic.application.commands.addCardToCollection;
+package be.thomasmore.moremagic.application.commands.addCardToWishlist;
 
 import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;
 
-public class addCardToCollectionCommand implements Command<Voidy> {
+public class addCardToWishlistCommand implements Command<Voidy> {
     public Integer collectionId;
     public String skryfallId;
     public String name;
@@ -15,7 +15,7 @@ public class addCardToCollectionCommand implements Command<Voidy> {
     public String lang;
     public String priceEur;
 
-    public addCardToCollectionCommand (Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
+    public addCardToWishlistCommand(Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
         this.collectionId = collectionId;
         this.skryfallId = skryfallId;
         this.name = name;

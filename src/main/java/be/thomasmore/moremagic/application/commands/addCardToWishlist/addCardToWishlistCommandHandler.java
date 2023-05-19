@@ -1,25 +1,22 @@
-package be.thomasmore.moremagic.application.commands.addCardToCollection;
+package be.thomasmore.moremagic.application.commands.addCardToWishlist;
 
 import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;
-import be.thomasmore.moremagic.application.commands.createCollection.createCollectionCommand;
 import be.thomasmore.moremagic.domain.Card;
-import be.thomasmore.moremagic.domain.Collection;
 import be.thomasmore.moremagic.persistence.CardRepository;
-import be.thomasmore.moremagic.persistence.CollectionRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class addCardToCollectionCommandHandler implements Command.Handler<addCardToCollectionCommand, Voidy>{
+public class addCardToWishlistCommandHandler implements Command.Handler<addCardToWishlistCommand, Voidy>{
 
     private final CardRepository _cardRepository;
 
-    public addCardToCollectionCommandHandler(CardRepository cardRepository) {
+    public addCardToWishlistCommandHandler(CardRepository cardRepository) {
         _cardRepository = cardRepository;
     }
 
     @Override
-    public Voidy handle(addCardToCollectionCommand command) {
+    public Voidy handle(addCardToWishlistCommand command) {
         Card card = new Card(command.collectionId, command.skryfallId, command.name, command.photo, command.setName, command.collectorNumber, command.typeLine, command.rarity, command.lang, command.priceEur);
         _cardRepository.save(card);
         return null;
