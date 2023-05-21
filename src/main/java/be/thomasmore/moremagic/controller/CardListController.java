@@ -95,9 +95,8 @@ public class CardListController {
 
     // DECKS //
     @PostMapping ("cardlist/createDeck")
-    public Voidy createDeck(@RequestParam String name,
-                                @RequestParam String description ){
-        return pipeline.send(new createDeckCommand(name, description));
+    public Voidy createDeck(@RequestBody createDeckCommand cmd ){
+        return pipeline.send(cmd);
     }
 
     @PostMapping ("cardlist/addCardToDeck")

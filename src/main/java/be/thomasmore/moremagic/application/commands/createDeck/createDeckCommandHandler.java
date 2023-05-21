@@ -20,7 +20,7 @@ public class createDeckCommandHandler implements Command.Handler<createDeckComma
     @Override
     public Voidy handle(createDeckCommand command) {
         System.out.println(command.name);
-        Deck deck = new Deck(command.name, command.description);
+        Deck deck = new Deck(command.name, command.description, command.userEmail);
         _deckRepository.save(deck);
              return null;
     }
