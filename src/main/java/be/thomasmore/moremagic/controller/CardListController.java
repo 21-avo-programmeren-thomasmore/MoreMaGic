@@ -84,8 +84,8 @@ public class CardListController {
     }
 
     @GetMapping ("cardlist/getWishlists")
-    public List<Wishlist> getWishlists() {
-        return pipeline.send(new getWishlistsQuery());
+    public List<Wishlist> getWishlists(@RequestParam String userEmail) {
+        return pipeline.send(new getWishlistsQuery(userEmail));
     }
 
     @GetMapping("cardlist/getCardsFromWishlist")
@@ -117,8 +117,8 @@ public class CardListController {
     }
 
     @GetMapping ("cardlist/getDecks")
-    public List<Deck> getDecks() {
-        return pipeline.send(new getDecksQuery());
+    public List<Deck> getDecks(@RequestParam String userMail) {
+        return pipeline.send(new getDecksQuery(userMail));
     }
 
     @GetMapping("cardlist/getCardsFromDeck")

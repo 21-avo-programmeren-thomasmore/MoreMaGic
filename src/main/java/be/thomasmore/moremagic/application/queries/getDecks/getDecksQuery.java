@@ -7,7 +7,8 @@ import be.thomasmore.moremagic.domain.Wishlist;
 import java.util.List;
 
 public class getDecksQuery implements Command<List<Deck>> {
-
-    public getDecksQuery() {
+    public String UserEmail;
+    public getDecksQuery(String userEmail) {
+        UserEmail = userEmail;
     }
 }

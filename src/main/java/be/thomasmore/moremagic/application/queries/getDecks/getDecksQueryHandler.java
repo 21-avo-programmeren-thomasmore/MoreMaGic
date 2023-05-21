@@ -20,7 +20,7 @@ public class getDecksQueryHandler implements Command.Handler<getDecksQuery, List
 
     @Override
     public List<Deck> handle(getDecksQuery command) {
-        List<Deck> decks = _deckRepository.findAll();
+        List<Deck> decks = _deckRepository.FindByUserEmail(command.UserEmail);
         return decks;
     }
 }
