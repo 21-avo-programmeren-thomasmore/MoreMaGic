@@ -62,9 +62,8 @@ public class CardListController {
 
     // WISHLISTS //
     @PostMapping ("cardlist/createWishlist")
-    public Voidy createWishlist(@RequestParam String name,
-                                  @RequestParam String description ){
-        return pipeline.send(new createWishlistCommand(name, description));
+    public Voidy createWishlist(@RequestBody createWishlistCommand cmd){
+        return pipeline.send(cmd);
     }
 
     @PostMapping ("cardlist/addCardToWishlist")

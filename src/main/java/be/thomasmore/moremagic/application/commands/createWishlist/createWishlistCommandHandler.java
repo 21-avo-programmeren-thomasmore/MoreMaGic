@@ -18,9 +18,8 @@ public class createWishlistCommandHandler implements Command.Handler<createWishl
 
     @Override
     public Voidy handle(createWishlistCommand command) {
-        System.out.println(command.name);
-        Wishlist wishlist = new Wishlist(command.name, command.description);
+        Wishlist wishlist = new Wishlist(command.name, command.description, command.userEmail);
         _wishlistRepository.save(wishlist);
-             return null;
+        return null;
     }
 }

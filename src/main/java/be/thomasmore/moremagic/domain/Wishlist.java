@@ -22,9 +22,12 @@ import java.time.LocalDateTime;
         @Column(name = "Description")
         private String description;
 
-        public Wishlist (String collectionName, String description) {
+        public Wishlist (String collectionName, String description , String userEmail) {
             this.collectionName = collectionName;
             this.description = description;
+            this.createdBy = userEmail;
+            this.createdOn = LocalDateTime.now();
+            this.modifiedOn = LocalDateTime.now();
         }
 
         public Wishlist() {
