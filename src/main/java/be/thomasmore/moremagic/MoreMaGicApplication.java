@@ -17,8 +17,8 @@ public class MoreMaGicApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/users/has-account").allowedOrigins("http://localhost:3000");
-                registry.addMapping("/users/user").allowedOrigins("http://localhost:3000");
+//                registry.addMapping("/users/has-account").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/users/*").allowedOrigins("http://localhost:3000");
                 registry.addMapping("/scryfall/*").allowedOrigins("http://localhost:3000");
                 registry.addMapping("/cardlist/*").allowedOrigins("http://localhost:3000");
                 registry.addMapping("/cardlist/getCardsFromCollection").allowedOrigins("http://localhost:3000");
