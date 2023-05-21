@@ -1,10 +1,10 @@
-package be.thomasmore.moremagic.application.commands.addCardToCollection;
+package be.thomasmore.moremagic.application.commands.addCardToDeck;
 
 import an.awesome.pipelinr.Command;
 import an.awesome.pipelinr.Voidy;
 
-public class addCardToCollectionCommand implements Command<Voidy> {
-    public Integer collectionId;
+public class addCardToDeckCommand implements Command<Voidy> {
+    public Integer deckId;
     public String skryfallId;
     public String name;
     public String photo;
@@ -15,8 +15,8 @@ public class addCardToCollectionCommand implements Command<Voidy> {
     public String lang;
     public String priceEur;
 
-    public addCardToCollectionCommand (Integer collectionId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
-        this.collectionId = collectionId;
+    public addCardToDeckCommand(Integer deckId, String skryfallId, String name, String photo, String setName, String collectorNumber, String typeLine, String rarity, String lang, String priceEur) {
+        this.deckId = deckId;
         this.skryfallId = skryfallId;
         this.name = name;
         this.photo = photo;

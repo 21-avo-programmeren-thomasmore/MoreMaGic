@@ -20,7 +20,7 @@ public class addCardToCollectionCommandHandler implements Command.Handler<addCar
 
     @Override
     public Voidy handle(addCardToCollectionCommand command) {
-        Card card = new Card(command.collectionId, command.skryfallId, command.name, command.photo);
+        Card card = new Card(command.collectionId, command.skryfallId, command.name, command.photo, command.setName, command.collectorNumber, command.typeLine, command.rarity, command.lang, command.priceEur, null, null);
         _cardRepository.save(card);
         return null;
     }
