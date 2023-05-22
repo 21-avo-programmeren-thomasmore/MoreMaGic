@@ -17,8 +17,8 @@ public class getWishlistsQueryHandler implements Command.Handler<getWishlistsQue
     }
 
     @Override
-    public List<Wishlist> handle(getWishlistsQuery command) {
-        List<Wishlist> wishlists = _wishlistRepository.findAll();
+    public List<Wishlist> handle(getWishlistsQuery query) {
+        List<Wishlist> wishlists = _wishlistRepository.FindByUserEmail(query.UserEmail);
         return wishlists;
     }
 }

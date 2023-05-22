@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 @Component
 public class GetUserQueryHandler implements Command.Handler<GetUserQuery, User> {
-    private UserRepository _userRepository;
+    private final UserRepository _userRepository;
 
     public GetUserQueryHandler(UserRepository _userRepository) {
         this._userRepository = _userRepository;
@@ -16,7 +16,7 @@ public class GetUserQueryHandler implements Command.Handler<GetUserQuery, User> 
 
     @Override
     public User handle(GetUserQuery getUserQuery) {
-        List<User> users = _userRepository.FindByName(getUserQuery.Name);
+        List<User> users = _userRepository.FindByEmail(getUserQuery.Email);
         return users.get(0);
     }
 }

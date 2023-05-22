@@ -4,9 +4,9 @@ import an.awesome.pipelinr.Command;
 import be.thomasmore.moremagic.domain.User;
 
 public class GetUserQuery implements Command<User> {
-    public String Name;
+    public String Email;
 
-    public GetUserQuery(String name) {
-        Name = name;
+    public GetUserQuery(String email) {
+        Email = email;
     }
 }

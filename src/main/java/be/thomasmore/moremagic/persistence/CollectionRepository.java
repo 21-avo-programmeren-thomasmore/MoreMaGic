@@ -11,6 +11,9 @@ import java.util.List;
 public interface CollectionRepository extends JpaRepository<Collection, Integer> {
     // Access properties in query by putting a ? and after the question mark the number of the property.
     // Spring Data will pass method parameters to the query in the same order they appear in the method declaration:
-    @Query(value="SELECT * FROM collection c WHERE collection.colleciton_name = ?1", nativeQuery = true)
+    @Query(value="SELECT * FROM collection c WHERE c.collection_name = ?1", nativeQuery = true)
     List<Collection> FindByName(String name);
+
+    @Query(value = "SELECT * FROM collection c WHERE c.created_by = ?1", nativeQuery = true)
+    List<Collection> FindByUserEmail(String userEmail);
 }

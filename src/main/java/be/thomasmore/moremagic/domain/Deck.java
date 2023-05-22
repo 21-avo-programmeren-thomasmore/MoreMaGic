@@ -22,9 +22,12 @@ public class Deck {
     @Column(name = "Description")
     private String description;
 
-    public Deck (String collectionName, String description) {
+    public Deck (String collectionName, String description, String createdBy) {
         this.collectionName = collectionName;
         this.description = description;
+        this.createdBy = createdBy;
+        this.createdOn = LocalDateTime.now();
+        this.modifiedOn = LocalDateTime.now();
     }
 
     public Deck() {

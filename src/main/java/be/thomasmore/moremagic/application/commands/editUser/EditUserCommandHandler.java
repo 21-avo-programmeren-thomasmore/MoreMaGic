@@ -18,7 +18,7 @@ public class EditUserCommandHandler implements Command.Handler<EditUserCommand, 
     @Override
     public Voidy handle(EditUserCommand editUserCommand) {
         User user = _userRepository.getById(editUserCommand.id);
-        user.editUser(editUserCommand.name, editUserCommand.address);
+        user.editUser(editUserCommand.firstName, editUserCommand.lastName);
 
         _userRepository.save(user);
         return null;

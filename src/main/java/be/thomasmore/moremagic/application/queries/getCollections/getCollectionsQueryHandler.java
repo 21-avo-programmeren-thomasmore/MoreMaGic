@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class getCollectionsQueryHandler implements Command.Handler<getCollectionsQuery, List<Collection>>{
 
-    private CollectionRepository _collectionRepository;
+    private final CollectionRepository _collectionRepository;
 
     public getCollectionsQueryHandler(CollectionRepository collectionRepository) {
         this._collectionRepository = collectionRepository;
@@ -19,7 +19,6 @@ public class getCollectionsQueryHandler implements Command.Handler<getCollection
 
     @Override
     public List<Collection> handle(getCollectionsQuery command) {
-        List<Collection> collections = _collectionRepository.findAll();
-        return collections;
+        return _collectionRepository.FindByUserEmail(command.UserEmail);
     }
 }

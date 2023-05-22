@@ -16,6 +16,8 @@ import be.thomasmore.moremagic.application.queries.getDecks.getDecksQuery;
 import be.thomasmore.moremagic.application.queries.getUser.GetUserQuery;
 import be.thomasmore.moremagic.application.queries.getWishlists.getWishlistsQuery;
 import be.thomasmore.moremagic.domain.*;
+import be.thomasmore.moremagic.domain.Card;
+import be.thomasmore.moremagic.domain.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +30,8 @@ public class CardListController {
     Pipeline pipeline;
     // COLLECTIONS //
     @PostMapping ("cardlist/createCollection")
-    public Voidy createCollection(@RequestParam String name,
-                                  @RequestParam String description ){
-        return pipeline.send(new createCollectionCommand(name, description));
+    public Voidy createCollection(@RequestBody createCollectionCommand cmd ){
+        return pipeline.send(cmd);
     }
 
     @PostMapping ("cardlist/addCardToCollection")
@@ -49,11 +50,9 @@ public class CardListController {
         return pipeline.send(new addCardToCollectionCommand(collectionId, skryfallId, name, photo, setName, collectorNumber, typeLine, rarity, lang, priceEur));
     }
 
-
-
     @GetMapping ("cardlist/getCollections")
-    public List<Collection> getCollections() {
-        return pipeline.send(new getCollectionsQuery());
+    public List<Collection> getCollections(@RequestParam String userMail) {
+        return pipeline.send(new getCollectionsQuery(userMail));
     }
 
     @GetMapping("cardlist/getCardsFromCollection")
@@ -63,9 +62,8 @@ public class CardListController {
 
     // WISHLISTS //
     @PostMapping ("cardlist/createWishlist")
-    public Voidy createWishlist(@RequestParam String name,
-                                  @RequestParam String description ){
-        return pipeline.send(new createWishlistCommand(name, description));
+    public Voidy createWishlist(@RequestBody createWishlistCommand cmd){
+        return pipeline.send(cmd);
     }
 
     @PostMapping ("cardlist/addCardToWishlist")
@@ -85,8 +83,8 @@ public class CardListController {
     }
 
     @GetMapping ("cardlist/getWishlists")
-    public List<Wishlist> getWishlists() {
-        return pipeline.send(new getWishlistsQuery());
+    public List<Wishlist> getWishlists(@RequestParam String userEmail) {
+        return pipeline.send(new getWishlistsQuery(userEmail));
     }
 
     @GetMapping("cardlist/getCardsFromWishlist")
@@ -96,9 +94,8 @@ public class CardListController {
 
     // DECKS //
     @PostMapping ("cardlist/createDeck")
-    public Voidy createDeck(@RequestParam String name,
-                                @RequestParam String description ){
-        return pipeline.send(new createDeckCommand(name, description));
+    public Voidy createDeck(@RequestBody createDeckCommand cmd ){
+        return pipeline.send(cmd);
     }
 
     @PostMapping ("cardlist/addCardToDeck")
@@ -118,8 +115,8 @@ public class CardListController {
     }
 
     @GetMapping ("cardlist/getDecks")
-    public List<Deck> getDecks() {
-        return pipeline.send(new getDecksQuery());
+    public List<Deck> getDecks(@RequestParam String userMail) {
+        return pipeline.send(new getDecksQuery(userMail));
     }
 
     @GetMapping("cardlist/getCardsFromDeck")

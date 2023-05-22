@@ -5,18 +5,34 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
+    //TODO When creating user check if there isn't already a user with the same email
+
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
     private Integer id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "address")
-    private String address;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
 
-    public User(String name, String address) {
-        this.name = name;
-        this.address = address;
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "role")
+    private UserRole role;
+
+
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = UserRole.USER;
     }
 
     public User() {
@@ -31,25 +47,49 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void editUser(String name, String address){
-        setName(name);
-        setAddress(address);
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
+    public void editUser(String firstName, String lastName){
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 }
 

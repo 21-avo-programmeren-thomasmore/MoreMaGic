@@ -13,4 +13,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // Spring Data will pass method parameters to the query in the same order they appear in the method declaration:
     @Query(value="SELECT * FROM users u WHERE u.name = ?1", nativeQuery = true)
     List<User> FindByName(String name);
+
+    @Query(value="SELECT * FROM users u WHERE u.email = ?1", nativeQuery = true)
+    List<User> FindByEmail(String email);
+
 }
